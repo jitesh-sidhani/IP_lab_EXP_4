@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            font-size: 17px;
+        }
+        
+        body {
+            background: linear-gradient(to right, #9fdbe4, #655ad1);
+        }
+        
+        .container1 {
+            margin-top: 30px;
+            background-color: rgb(224, 251, 255);
+            height: 800px;
+            width: 500px;
+            margin-left: 60px;
+            float: left;
+            border: 2px solid black;
+        }
+        
+        #tshirtimg {
+            position: absolute;
+            top: 80px;
+            right: 1220px;
+            border: 2px solid black;
+        }
+        
+        .container2 {
+            height: 800px;
+            width: 700px;
+            position: absolute;
+            top: 40px;
+            left: 700px;
+            background-color: rgb(224, 251, 255);
+            float: right;
+            border: 2px solid black;
+        }
+        
+        textarea {
+            resize: None;
+        }
+        
+        form.center {
+            text-align: center;
+        }
+        
+        .combined {
+            display: flex;
+        }
+        
+        form {
+            margin-left: 30px;
+        }
+    </style>
+
+    <title>Customize your Own Favourite Tshirt</title>
+</head>
+
+<body>
+    <div class="combined">
+        <div class="container1">
+            <image src="https://cdn.shopify.com/s/files/1/1038/1798/products/t-shirt-psd-mockup-free-download-h3.jpg?v=1525178058" width="300" id="tshirtimg" />
+            <h3 style="margin-top:340px;text-align: center;">About Us</h3>
+            <p style="text-align: center;">We work with numerous new and established graphical <br> designers to produce a truly unique product. <br> Our range of designs is constantly evolving, and <br> we want to have something for everyone. The <br> garments and accessories we produce
+                are interpretations
+                <br> of pop cultural influences. In addition to <br> our own work we benefit from our creative community <br> a growing network of designers from all <br> around the world.</p>
+            <br><br>
+            <h3 style="margin-left:200px;">Contact Us</h3>
+            <a href="#" class="fa fa-facebook" style="margin-left:180px;font-size: 30px;word-spacing: 15px;padding:8px 8px;"></a>
+            <a href="#" class="fa fa-twitter" style="font-size:30px;word-spacing: 15px;padding:8px 8px;"></a>
+            <a href="#" class="fa fa-instagram" style="font-size: 30px;word-spacing: 15px;padding:8px 8px;"></a>
+        </div>
+        <br /><br />
+
+        <div class="container2">
+            <b style="font-size: 20px;margin-left: 180px;"><b>CUSTOMISE YOUR OWN FAVOURITE TSHIRT</b>
+            <h1></h1>
+            </b><br /><br />
+            <form name="myForm" id="shirt_cart" onsubmit="return validateForm()" enctype="multipart/form-data" method="put">
+                <label for="name"> <b>Enter your Name</b></label>
+                <input type="text" id="name" />
+                <br />
+                <br />
+                <label for="email"><b>EMAIL</b></label>
+                <input type="email" name="email" id="email" /><br /><br />
+
+                <label for="tel"><b>Contact</b></label>
+                <input type="tel" name="tel" id="tel" maxlength="10" minlength="10" /><br /><br />
+
+                <label for="Address"> <b>Enter your Shipping Address</b> </label>
+                <textarea id="Address"></textarea>
+                <br />
+                <br />
+
+                <label for="tagline"> <b>Enter Tagline </b></label>
+                <input type="text" id="tagline" />
+                <br />
+                <br />
+
+                <label for="color"> <b>select color</b></label>
+                <input type="color" id="color" />
+                <br />
+                <br />
+
+                <label for="size"> <b>Choose The Size </b></label>
+                <select name="size" id="size">
+                        <option value="Small">S</option>
+                        <option value="Medium" selected>M</option>
+                        <option value="Large">L</option>
+                        <option value="Extra Large">XL</option>
+                    </select>
+                <br />
+                <br />
+
+                <label for="quantity"><b> Enter quantity </b></label>
+                <input type="number" id="quantity" min="1" max="15" />
+                <br />
+                <br />
+
+                <label for="deldate"> <b>Enter Date to be Delivery </b></label>
+                <input type="Date" id="deldate" />
+                <br />
+                <br />
+
+                <b><b>Select Your Payment Option</b></b><br /><br />
+
+                <input type="radio" id="cod" name="payment" value="cod" />
+                <label for="cod" title="cash on delivery">COD</label><br /><br />
+
+                <input type="radio" id="upi" name="payment" value="upi" />
+                <label for="upi">UPI</label><br /><br />
+
+                <input type="radio" id="net" name="payment" value="net" />
+                <label for="net">Net Banking</label><br /><br />
+                <br />
+                <input type="submit" value="place Order" />
+                <input type="reset" value="reset" />
+                <br />
+                <br />
+
+                <strong>please make sure you fill all the details and get your tshirts
+                        customized , happy shopping guys</strong
+                    >
+        </div>
+            </form>
+    </div>
+        
+    </body>
+    <script>
+        function validateForm() {
+            // Part A
+            const values = [
+                document.forms["myForm"]["tagline"].value,
+                document.forms["myForm"]["color"].value,
+                document.forms["myForm"]["size"].value,
+                document.forms["myForm"]["payment"].value,
+                document.forms["myForm"]["email"].value,
+            ];
+            const hasEmptyFields = Object.values(values).some(
+                (element) => element === ""
+            );
+            if (hasEmptyFields) {
+                alert("Please fill in all fields");
+                return;
+            } // Part B
+            document.getElementById("tagline").value = "";
+            document.getElementById("email").value =/^[a-zA-Z0-9._]+@[a-zA-Z]+\.(com|org)$/;
+            var ele = document.getElementsByName("color");
+            for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+            var ele = document.getElementsByName("payment");
+            for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+            const receipt_formatted = `Thank you for shopping!\nHere's your
+receipt:\nDate: ${new Date().toLocaleDateString("UK")}\nTagline: ${
+                values[0]
+            }\nColor: ${values[1]}\nSize: ${values[2]}\nPayment Method: ${
+                values[3]
+            }`;
+            alert(receipt_formatted);
+        }
+        const form = document.getElementById("shirt_cart");
+        form.addEventListener("submit", (event) => {
+            // stop form submission event.preventDefault();
+        });
+    </script>
+</html>
